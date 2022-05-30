@@ -1,0 +1,28 @@
+﻿@model IEnumerable<EntityFramework1.Models.Quiz>
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+@if(Model.Count()>0){
+    <form action="/ChooseQuiz/StartQuiz" method="POST">
+        
+        <div class="form-group mb-2 row">
+            <label class="col-sm-4 col-form-label">Choisir une quiz</label>
+            <div class="col-sm-8">
+                <select name="quizId">
+                   @foreach(Quiz q in Model)
+                {
+                    <option value="@q.QuizId">@q.QuizId</option>
+                }
+            </select>   
+            </div>
+        </div>
+        
+    
+    <input type="submit" value="Submit" class="btn btn-primary mb-2" />
+    </form>
+} else {
+     <h1>This user has no quiz</h1>
+}

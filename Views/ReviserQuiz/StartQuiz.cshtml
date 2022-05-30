@@ -1,0 +1,45 @@
+﻿@model IEnumerable<EntityFramework1.Models.ItemOption>
+@{
+	int total = 0;
+}
+<div class="table-responsive">
+ <table class="table">
+	 <thead>
+		<tr>
+			<td>The question</td>
+			<td>Your answer</td>
+			<td>Correct?</td>
+		</tr> 
+	 </thead>
+	 <tbody>
+ @foreach(ItemOption q in Model) {
+			if (q.IsRight == true)
+			{
+				total++;
+			}
+		<tr>
+			<td>
+				@q.Question.Text
+			</td>
+			<td>
+				@q.Text
+			</td>
+			<td>
+				@q.IsRight
+			</td>
+			
+		</tr>
+		 
+	
+ }
+ </tbody>
+ <tfoot>
+	<tr>
+		<td></td>
+		<td>Total:</td>
+		<td>@total</td>
+	</tr>
+</tfoot>
+ 
+  </table>
+ </div>
