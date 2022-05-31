@@ -40,9 +40,16 @@ namespace EntityFramework1.Controllers
 
         public IActionResult Answers(IFormCollection form)
         {
+
+            List<string> result = new List<string>();
             Debug.WriteLine("Answer: " + form["question"]);
-            string value = form["question"];
-            string[] result = value.Split(',');
+            foreach (var key in form.Keys)
+            {
+                result.Add(form[key.ToString()]);
+                
+            }
+            
+            
             
 
             foreach (string res in result)

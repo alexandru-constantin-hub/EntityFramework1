@@ -16,13 +16,13 @@
                     @foreach (var answer in (ViewData["Answers"] as IEnumerable<ItemOption>).Where(x => x.QuestionId == q.QuestionId))
                     {
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="itemOption" id="flexRadioDefault1" value="@answer.OptionId">
+                            <input class="form-check-input" type="radio" name="@q.QuestionId" value="@answer.OptionId">
                             <label class="form-check-label" for="flexRadioDefault1">@answer.Text</label>
                         </div>
                         
                         @*<option value="@answer.OptionId">@answer.Text</option>*@
                     }
-                  
+                 
             </div>
         </div>
         
